@@ -84,6 +84,13 @@ test("settings are bounded", () => {
   assert.equal(M.config({ showBorder: "false" }).showBorder, false)
 })
 
+test("time to the next look-far break and blink nudge", () => {
+  const s = { farMs: 5 * MIN, blinkMs: 7 * MIN }
+  assert.equal(M.farRemainingMs(s, cfg), 15 * MIN)
+  assert.equal(M.blinkRemainingMs(s, cfg), 3 * MIN)
+  assert.equal(M.blinkRemainingMs({ farMs: 0, blinkMs: 99 * MIN }, cfg), 0)
+})
+
 test("reminders land within the middle half of the free space, centre most likely", () => {
   assert.equal(M.nearCenter(0, 0), -0.5)
   assert.equal(M.nearCenter(1, 1), 0.5)

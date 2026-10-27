@@ -26,6 +26,7 @@ Item {
 
   readonly property bool paused: Model.isPaused(state, now)
   readonly property double farRemainingMs: Model.farRemainingMs(state, cfg)
+  readonly property double blinkRemainingMs: Model.blinkRemainingMs(state, cfg)
 
   function applySettings(values) { settings = values || {} }
 
@@ -172,7 +173,7 @@ Item {
         showing: root.showing, last: root.last, paused: root.paused, pausedUntil: root.state.pausedUntil,
         idle: root.userIdle, sharing: root.sharing,
         farInSeconds: Math.round(root.farRemainingMs / 1000),
-        blinkInSeconds: Math.round(Math.max(0, root.cfg.blinkEveryMs - root.state.blinkMs) / 1000),
+        blinkInSeconds: Math.round(root.blinkRemainingMs / 1000),
         farEnabled: root.cfg.farEnabled, blinkEnabled: root.cfg.blinkEnabled
       })
     }

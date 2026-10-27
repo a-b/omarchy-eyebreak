@@ -130,6 +130,10 @@ function farRemainingMs(s, cfg) {
   return Math.max(0, cfg.farEveryMs - s.farMs)
 }
 
+function blinkRemainingMs(s, cfg) {
+  return Math.max(0, cfg.blinkEveryMs - s.blinkMs)
+}
+
 // "45 s", "12 min", "1 h 5 min".
 function fmt(ms) {
   var sec = Math.max(0, Math.round(ms / 1000))
@@ -151,6 +155,7 @@ if (typeof module !== "undefined") {
     config: config, initial: initial, isPaused: isPaused, rested: rested,
     advance: advance, due: due, shown: shown, held: held, holdLifted: holdLifted,
     pauseUntil: pauseUntil, pause: pause, resume: resume,
-    farRemainingMs: farRemainingMs, fmt: fmt, clock: clock, nearCenter: nearCenter
+    farRemainingMs: farRemainingMs, blinkRemainingMs: blinkRemainingMs,
+    fmt: fmt, clock: clock, nearCenter: nearCenter
   }
 }

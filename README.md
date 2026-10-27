@@ -34,7 +34,7 @@ This installs it at `~/.config/omarchy/plugins/a-b.eyebreak` and puts the eye ic
 
 ## Bar menu
 
-Hover the eye for the time to the next look-far break. Click it for:
+Hover the eye for the time to the next look-far break and blink nudge; the menu shows the same line at the top. Click it for:
 
 - Pause 15 min, 1 h or until tomorrow (06:00), and Resume. While paused the eye is shut.
 - Take a look-far break now.

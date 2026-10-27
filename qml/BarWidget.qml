@@ -104,8 +104,11 @@ BarWidget {
     if (!service) return "Eye Break: service not running"
     if (paused) return "Eye Break paused until " + Model.clock(service.state.pausedUntil)
     if (!cfg.farEnabled && !cfg.blinkEnabled) return "Eye Break off"
-    if (!cfg.farEnabled) return "Blink nudges only"
-    return "Look-far break in " + Model.fmt(service.farRemainingMs)
+    var parts = []
+    if (cfg.farEnabled) parts.push("look far in " + Model.fmt(service.farRemainingMs))
+    if (cfg.blinkEnabled) parts.push("blink in " + Model.fmt(service.blinkRemainingMs))
+    var text = parts.join(" · ")
+    return text.charAt(0).toUpperCase() + text.slice(1)
   }
 
   // Menu actions need the service; without it they only close the menu.
