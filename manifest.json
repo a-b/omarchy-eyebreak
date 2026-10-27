@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "a-b.eyebreak",
+  "name": "Eye Break",
+  "version": "1.0.0",
+  "author": "Al B",
+  "license": "MIT",
+  "description": "Blink nudges and 20-20-20 look-far breaks as click-through reminders on every screen. Counts active time only and holds during Do Not Disturb and screen sharing.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "service": "qml/Service.qml",
+    "barWidget": "qml/BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Eye Break",
+    "description": "Blink and look-far reminders with pause controls",
+    "category": "Wellbeing",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "schema": [
+      {
+        "key": "blinkEnabled",
+        "type": "boolean",
+        "label": "Blink nudges",
+        "defaultValue": true
+      },
+      {
+        "key": "blinkEveryMinutes",
+        "type": "integer",
+        "label": "Blink nudge every (minutes)",
+        "min": 1,
+        "max": 60,
+        "step": 1,
+        "defaultValue": 10
+      },
+      {
+        "key": "blinkSeconds",
+        "type": "integer",
+        "label": "Blink nudge shows for (seconds)",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "defaultValue": 3
+      },
+      {
+        "key": "farEnabled",
+        "type": "boolean",
+        "label": "Look-far breaks",
+        "defaultValue": true
+      },
+      {
+        "key": "farEveryMinutes",
+        "type": "integer",
+        "label": "Look-far break every (minutes)",
+        "min": 1,
+        "max": 120,
+        "step": 1,
+        "defaultValue": 20
+      },
+      {
+        "key": "farSeconds",
+        "type": "integer",
+        "label": "Look-far break lasts (seconds)",
+        "min": 5,
+        "max": 120,
+        "step": 1,
+        "defaultValue": 20
+      },
+      {
+        "key": "opacityPercent",
+        "type": "integer",
+        "label": "Reminder opacity (%)",
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "defaultValue": 50
+      },
+      {
+        "key": "dismissOnClick",
+        "type": "boolean",
+        "label": "Click a reminder to dismiss it",
+        "description": "Off: reminders are click-through.",
+        "defaultValue": false
+      }
+    ]
+  }
+}

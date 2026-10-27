@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="JetBrainsMono Nerd Font, monospace">
+  <defs>
+    <clipPath id="iris"><path d="M0 0 Q60 -38 120 0 Q60 38 0 0 Z"/></clipPath>
+  </defs>
+  <rect width="1600" height="900" fill="#1a1b26"/>
+
+  <!-- Title and promise -->
+  <text x="80" y="130" font-size="64" font-weight="bold" fill="#c0caf5">Eye Break</text>
+  <text x="80" y="185" font-size="26" fill="#a9b1d6">Blink. Look far. Keep working.</text>
+  <text x="80" y="222" font-size="20" fill="#565f89">The 20-20-20 rule, built into Omarchy.</text>
+
+  <!-- Value points -->
+  <g font-size="21" fill="#c0caf5">
+    <circle cx="92" cy="303" r="7" fill="#7aa2f7"/>
+    <text x="114" y="310">Look ~6 m (20 ft) away for 20 s</text>
+    <text x="114" y="338" font-size="17" fill="#565f89">every 20 min of screen time</text>
+
+    <circle cx="92" cy="393" r="7" fill="#7aa2f7"/>
+    <text x="114" y="400">Blink nudge every 10 min</text>
+    <text x="114" y="428" font-size="17" fill="#565f89">3 s, then it fades</text>
+
+    <circle cx="92" cy="483" r="7" fill="#9ece6a"/>
+    <text x="114" y="490">Counts active time only</text>
+    <text x="114" y="518" font-size="17" fill="#565f89">20 s away from the keys = rested</text>
+
+    <circle cx="92" cy="573" r="7" fill="#9ece6a"/>
+    <text x="114" y="580">Quiet in calls</text>
+    <text x="114" y="608" font-size="17" fill="#565f89">holds during Do Not Disturb and screen share</text>
+  </g>
+
+  <!-- Mock screen -->
+  <rect x="640" y="70" width="880" height="560" rx="14" fill="#16161e" stroke="#24283b" stroke-width="2"/>
+  <!-- bar -->
+  <rect x="640" y="70" width="880" height="40" rx="14" fill="#24283b"/>
+  <rect x="640" y="96" width="880" height="14" fill="#24283b"/>
+  <g fill="#565f89">
+    <circle cx="670" cy="90" r="5"/><circle cx="690" cy="90" r="5"/><circle cx="710" cy="90" r="5"/>
+    <rect x="1350" y="84" width="14" height="12" rx="2"/>
+    <rect x="1470" y="84" width="26" height="12" rx="2"/>
+  </g>
+  <!-- bar eye icon, highlighted -->
+  <rect x="1384" y="77" width="56" height="26" rx="6" fill="none" stroke="#7aa2f7" stroke-width="2"/>
+  <g transform="translate(1399 90)" stroke="#c0caf5" stroke-width="2" fill="none">
+    <path d="M0 0 Q13 -11 26 0 Q13 11 0 0 Z"/>
+    <circle cx="13" cy="0" r="4" fill="#c0caf5"/>
+  </g>
+
+  <!-- code being worked on -->
+  <g font-size="17">
+    <text x="680" y="160" fill="#565f89">12</text><text x="730" y="160" fill="#bb9af7">function</text><text x="830" y="160" fill="#7aa2f7">render</text><text x="895" y="160" fill="#c0caf5">(frame) {</text>
+    <text x="680" y="192" fill="#565f89">13</text><text x="760" y="192" fill="#bb9af7">const</text><text x="825" y="192" fill="#c0caf5">size = frame.width * scale</text>
+    <text x="680" y="224" fill="#565f89">14</text><text x="760" y="224" fill="#bb9af7">for</text><text x="805" y="224" fill="#c0caf5">(const row of rows) {</text>
+    <text x="680" y="256" fill="#565f89">15</text><text x="790" y="256" fill="#c0caf5">paint(row, size)</text>
+    <text x="680" y="288" fill="#565f89">16</text><text x="790" y="288" fill="#c0caf5">cache.set(row.id, size)</text>
+    <text x="680" y="320" fill="#565f89">17</text><text x="760" y="320" fill="#c0caf5">}</text>
+    <text x="680" y="352" fill="#565f89">18</text><text x="760" y="352" fill="#bb9af7">return</text><text x="835" y="352" fill="#c0caf5">frame.commit()</text>
+    <text x="680" y="384" fill="#565f89">19</text><text x="730" y="384" fill="#c0caf5">}</text>
+    <text x="680" y="416" fill="#565f89">20</text>
+    <text x="680" y="448" fill="#565f89">21</text><text x="730" y="448" fill="#9ece6a">// see-through card: the code stays readable</text>
+    <text x="680" y="480" fill="#565f89">22</text><text x="730" y="480" fill="#bb9af7">export</text><text x="805" y="480" fill="#c0caf5">{ render }</text>
+  </g>
+
+  <!-- the reminder card, 50 % opaque, a little off-centre -->
+  <g transform="translate(1000 230)">
+    <rect width="330" height="230" rx="10" fill="#16161e" fill-opacity="0.55" stroke="#7aa2f7" stroke-width="2"/>
+    <g transform="translate(105 72)">
+      <path d="M0 0 Q60 -38 120 0 Q60 38 0 0 Z" fill="none" stroke="#c0caf5" stroke-width="3"/>
+      <g clip-path="url(#iris)">
+        <circle cx="60" cy="0" r="17" fill="#7aa2f7"/>
+        <circle cx="60" cy="0" r="7" fill="#16161e"/>
+      </g>
+    </g>
+    <text x="165" y="145" font-size="22" font-weight="bold" fill="#c0caf5" text-anchor="middle">Look ~6 m (20 ft) away</text>
+    <text x="165" y="176" font-size="18" fill="#a9b1d6" text-anchor="middle">14 s</text>
+    <rect x="45" y="196" width="240" height="6" rx="3" fill="#24283b"/>
+    <rect x="45" y="196" width="168" height="6" rx="3" fill="#7aa2f7"/>
+  </g>
+  <text x="1080" y="600" font-size="16" fill="#565f89" text-anchor="middle">click-through · 50 % see-through · on every screen</text>
+
+  <!-- Timeline: one 20 minute cycle -->
+  <g font-size="18">
+    <text x="80" y="712" fill="#a9b1d6">One cycle of active screen time</text>
+    <line x1="80" y1="770" x2="1520" y2="770" stroke="#24283b" stroke-width="6" stroke-linecap="round"/>
+    <line x1="80" y1="770" x2="1520" y2="770" stroke="#7aa2f7" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+
+    <circle cx="80" cy="770" r="9" fill="#565f89"/>
+    <text x="72" y="815" fill="#565f89">0 min</text>
+
+    <!-- blink at 10 -->
+    <g transform="translate(788 755)">
+      <path d="M0 15 Q12 4 24 15 Q12 26 0 15 Z" fill="#1a1b26" stroke="#c0caf5" stroke-width="2"/>
+      <circle cx="12" cy="15" r="4" fill="#c0caf5"/>
+    </g>
+    <text x="800" y="815" fill="#c0caf5" text-anchor="middle">10 min · blink</text>
+
+    <!-- look far at 20 -->
+    <circle cx="1520" cy="770" r="14" fill="#7aa2f7"/>
+    <text x="1520" y="815" fill="#7aa2f7" text-anchor="end">20 min · look far 20 s</text>
+
+    <text x="800" y="860" font-size="16" fill="#565f89" text-anchor="middle">Then the clock restarts. Pause from the bar: 15 min, 1 h or until tomorrow.</text>
+  </g>
+</svg>
