@@ -9,7 +9,8 @@ var DEFAULTS = {
   farEveryMinutes: 20,
   farSeconds: 20,
   opacityPercent: 50,
-  dismissOnClick: false
+  dismissOnClick: false,
+  showBorder: true
 }
 
 // A tick gap longer than this means the machine slept: treat it as a break.
@@ -42,7 +43,8 @@ function config(settings) {
     farEveryMs: int(s.farEveryMinutes, DEFAULTS.farEveryMinutes, 1, 120) * 60000,
     farShowMs: int(s.farSeconds, DEFAULTS.farSeconds, 5, 120) * 1000,
     opacity: int(s.opacityPercent, DEFAULTS.opacityPercent, 20, 100) / 100,
-    dismissOnClick: bool(s.dismissOnClick, DEFAULTS.dismissOnClick)
+    dismissOnClick: bool(s.dismissOnClick, DEFAULTS.dismissOnClick),
+    showBorder: bool(s.showBorder, DEFAULTS.showBorder)
   }
 }
 

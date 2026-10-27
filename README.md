@@ -41,6 +41,7 @@ Hover the eye for the time to the next look-far break. Click it for:
 - Sliders for the blink and look-far intervals. The leftmost position turns that reminder off. The recommended value is shown at the right of each.
 - Opacity slider for the cards (20–100 %).
 - Click to dismiss: clicking a card closes it on every screen.
+- Coloured border: turns the accent-coloured border around the cards on or off.
 
 ## Settings
 
@@ -56,6 +57,7 @@ All settings live in the widget's entry in `~/.config/omarchy/shell.json`. The m
 | `farSeconds` | `20` | 5–120 |
 | `opacityPercent` | `50` | 20–100 |
 | `dismissOnClick` | `false` | |
+| `showBorder` | `true` | accent-coloured border around the cards |
 
 Booleans need `--json`, e.g. `omarchy bar set a-b.eyebreak dismissOnClick true --json`.
 

@@ -234,27 +234,31 @@ BarWidget {
         onReleased: function(v) { root.setSetting("opacityPercent", v) }
       }
 
-      Item {
-        width: menu.width
-        height: dismissToggle.implicitHeight + Style.space(8)
+      Repeater {
+        model: [{ key: "dismissOnClick", label: "Click to dismiss" }, { key: "showBorder", label: "Coloured border" }]
+        Item {
+          required property var modelData
+          width: menu.width
+          height: toggle.implicitHeight + Style.space(8)
 
-        Text {
-          anchors.left: parent.left
-          anchors.leftMargin: Style.spacing.controlPaddingX
-          anchors.verticalCenter: parent.verticalCenter
-          textFormat: Text.PlainText
-          text: "Click to dismiss"
-          color: Commons.Color.foreground
-          font.family: Style.font.family
-          font.pixelSize: Style.font.body
-        }
+          Text {
+            anchors.left: parent.left
+            anchors.leftMargin: Style.spacing.controlPaddingX
+            anchors.verticalCenter: parent.verticalCenter
+            textFormat: Text.PlainText
+            text: modelData.label
+            color: Commons.Color.foreground
+            font.family: Style.font.family
+            font.pixelSize: Style.font.body
+          }
 
-        ToggleSwitch {
-          id: dismissToggle
-          anchors.right: parent.right
-          anchors.verticalCenter: parent.verticalCenter
-          checked: root.cfg.dismissOnClick
-          onToggled: root.setSetting("dismissOnClick", !root.cfg.dismissOnClick)
+          ToggleSwitch {
+            id: toggle
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            checked: root.cfg[modelData.key]
+            onToggled: root.setSetting(modelData.key, !root.cfg[modelData.key])
+          }
         }
       }
     }

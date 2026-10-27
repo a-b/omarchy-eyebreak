@@ -80,6 +80,8 @@ test("settings are bounded", () => {
   assert.equal(c.farShowMs, 20000)
   assert.equal(c.opacity, 0.2)
   assert.equal(M.config({ dismissOnClick: "true" }).dismissOnClick, true)
+  assert.equal(M.config({}).showBorder, true)
+  assert.equal(M.config({ showBorder: "false" }).showBorder, false)
 })
 
 test("reminders land within the middle half of the free space, centre most likely", () => {

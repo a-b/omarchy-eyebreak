@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "a-b.eyebreak",
   "name": "Eye Break",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Al B",
   "license": "MIT",
   "description": "Blink nudges and 20-20-20 look-far breaks as click-through reminders on every screen. Counts active time only and holds during Do Not Disturb and screen sharing.",
@@ -84,6 +84,12 @@
         "label": "Click a reminder to dismiss it",
         "description": "Off: reminders are click-through.",
         "defaultValue": false
+      },
+      {
+        "key": "showBorder",
+        "type": "boolean",
+        "label": "Coloured border around reminders",
+        "defaultValue": true
       }
     ]
   }

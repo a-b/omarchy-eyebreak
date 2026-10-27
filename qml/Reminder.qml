@@ -62,7 +62,7 @@ PanelWindow {
     radius: Style.cornerRadius
     color: Commons.Color.popups.background
     border.color: Commons.Color.popups.border
-    border.width: Math.max(1, Style.space(2))
+    border.width: win.service && !win.service.cfg.showBorder ? 0 : Math.max(1, Style.space(2))
     opacity: win.on && win.service ? win.service.cfg.opacity : 0
     Behavior on opacity { NumberAnimation { duration: Style.duration(250) } }
 
