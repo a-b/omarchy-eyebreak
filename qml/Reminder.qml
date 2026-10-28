@@ -60,10 +60,13 @@ PanelWindow {
     width: win.far ? Style.space(320) : Style.space(150)
     height: content.implicitHeight + Style.space(40)
     radius: Style.cornerRadius
-    color: Commons.Color.popups.background
+    // Only the fill is see-through; the eye, text and border stay solid so
+    // they read on light themes too.
+    readonly property color fill: Commons.Color.popups.background
+    color: Qt.rgba(fill.r, fill.g, fill.b, win.service ? win.service.cfg.opacity : 1)
     border.color: Commons.Color.popups.border
     border.width: win.service && !win.service.cfg.showBorder ? 0 : Math.max(1, Style.space(2))
-    opacity: win.on && win.service ? win.service.cfg.opacity : 0
+    opacity: win.on ? 1 : 0
     Behavior on opacity { NumberAnimation { duration: Style.duration(250) } }
 
     MouseArea {

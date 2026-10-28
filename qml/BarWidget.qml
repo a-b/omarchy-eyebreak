@@ -14,6 +14,8 @@ BarWidget {
   readonly property bool paused: !!service && service.paused
   readonly property var cfg: Model.config(settings)
   property bool popupOpen: false
+  // The bar shows a tooltip only for a target whose tooltipHovered is true.
+  readonly property bool tooltipHovered: hoverArea.containsMouse
 
   function close() { popupOpen = false }
 
@@ -111,6 +113,11 @@ BarWidget {
     return text.charAt(0).toUpperCase() + text.slice(1)
   }
 
+  // Re-evaluates whenever the service's clock or settings change, so the menu
+  // line and an open tooltip keep counting down.
+  readonly property string status: statusText()
+  onStatusChanged: if (tooltipHovered && bar) bar.showTooltip(root, status)
+
   // Menu actions need the service; without it they only close the menu.
   function act(fn) { if (service) fn(); popupOpen = false }
 
@@ -126,7 +133,6 @@ BarWidget {
     lineWidth: Math.max(1.5, Style.bar.iconSize / 10)
     lineColor: root.bar ? root.bar.barForeground : Commons.Color.foreground
     closed: root.paused
-    opacity: root.paused ? 0.6 : 1
 
     SequentialAnimation on openness {
       running: !!root.service && root.service.showing !== "" && !Style.reduceMotion
@@ -140,11 +146,12 @@ BarWidget {
   }
 
   MouseArea {
+    id: hoverArea
     anchors.fill: parent
     hoverEnabled: true
     cursorShape: Qt.PointingHandCursor
     onClicked: root.popupOpen = !root.popupOpen
-    onEntered: if (root.bar) root.bar.showTooltip(root, root.statusText())
+    onEntered: if (root.bar) root.bar.showTooltip(root, root.status)
     onExited: if (root.bar) root.bar.hideTooltip(root)
   }
 
@@ -165,7 +172,7 @@ BarWidget {
       Text {
         width: parent.width
         textFormat: Text.PlainText
-        text: root.popupOpen ? root.statusText() : ""
+        text: root.status
         color: Commons.Color.foreground
         font.family: Style.font.family
         font.pixelSize: Style.font.body
@@ -228,7 +235,7 @@ BarWidget {
       SliderRow {
         width: menu.width
         bar: root.bar
-        label: "Opacity  " + liveValue + " %"
+        label: "Background  " + liveValue + " %"
         hint: "rec. " + Model.DEFAULTS.opacityPercent + " %"
         minimum: 20
         maximum: 100

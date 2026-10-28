@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "a-b.eyebreak",
   "name": "Eye Break",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Al B",
   "license": "MIT",
   "description": "Blink nudges and 20-20-20 look-far breaks as see-through, click-through cards on every screen. Counts active time only, holds during Do Not Disturb and screen sharing, and is set up from a bar menu.",
@@ -72,7 +72,7 @@
       {
         "key": "opacityPercent",
         "type": "integer",
-        "label": "Reminder opacity (%)",
+        "label": "Card background opacity (%)",
         "min": 20,
         "max": 100,
         "step": 5,

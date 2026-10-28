@@ -42,7 +42,7 @@ Hover the eye for the time to the next reminders, e.g. "Look far in 19 min · bl
 - Pause 15 min, 1 h or until tomorrow (06:00), and Resume. While paused the eye is shut.
 - Take a look-far break now.
 - Sliders for the blink and look-far intervals. The leftmost position turns that reminder off. The recommended value is shown at the right of each.
-- Opacity slider for the cards (20–100 %).
+- Background slider: how opaque the card background is (20–100 %). The eye, text and border always stay solid.
 - Click to dismiss: clicking a card closes it on every screen.
 - Coloured border: turns the accent-coloured border around the cards on or off.
 
@@ -58,7 +58,7 @@ All settings live in the widget's entry in `~/.config/omarchy/shell.json`. The m
 | `farEnabled` | `true` | |
 | `farEveryMinutes` | `20` | 1–120 |
 | `farSeconds` | `20` | 5–120 |
-| `opacityPercent` | `50` | 20–100 |
+| `opacityPercent` | `50` | 20–100; card background only |
 | `dismissOnClick` | `false` | |
 | `showBorder` | `true` | accent-coloured border around the cards |
 
@@ -88,7 +88,7 @@ The 10-minute blink interval is this plugin's choice, not a published guideline.
 ## Known limits
 
 - A pause is forgotten when the shell restarts.
-- The time in the menu and tooltip updates every 5 s while you are active, and not while you are idle.
+- The time in the menu and tooltip moves in 5 s steps while you are active. It holds still while you are idle, because idle time does not count.
 - "Until tomorrow" always ends at 06:00.
 - Do Not Disturb is read with `omarchy-shell notifications dndState`, so "snooze all notifications" is not detected. If that command does not answer within 3 s, the reminder shows anyway.
 - Screen sharing is detected the way Omarchy's notifications detect it: a portal video stream named `xdph-streaming-*`.
