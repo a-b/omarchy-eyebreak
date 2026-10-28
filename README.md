@@ -2,9 +2,9 @@
 
 [![CI](https://github.com/a-b/omarchy-eyebreak/actions/workflows/ci.yml/badge.svg)](https://github.com/a-b/omarchy-eyebreak/actions/workflows/ci.yml)
 
-![Eye Break: a see-through "Look ~6 m away" card over code, and one 20-minute cycle with a blink at 10 min](preview.png)
+![Eye Break: a see-through "Look ~6 m (20 ft) away" card over code, and one 20-minute cycle with a blink nudge at 10 min](preview.png)
 
-Blink nudges and 20-20-20 look-far breaks for the Omarchy bar. Reminders are small see-through cards on every screen. They count active screen time only and wait while you are in Do Not Disturb or sharing your screen.
+Blink nudges and 20-20-20 look-far breaks for the Omarchy bar. Reminders are small see-through cards on every screen. They count active screen time only, wait while you are in Do Not Disturb or sharing your screen, and are set up from a menu on the bar.
 
 ## Requirements
 
@@ -21,6 +21,8 @@ omarchy plugin add https://github.com/a-b/omarchy-eyebreak.git --enable
 
 This installs it at `~/.config/omarchy/plugins/a-b.eyebreak` and puts the eye icon in the right section of the bar. Move it with, for example, `omarchy bar move a-b.eyebreak --section center`.
 
+`omarchy plugin add` may print "omarchy-shell is not responding" while the shell loads the plugin. It is harmless: the plugin is still enabled.
+
 ## What it does
 
 | Reminder | Default | What you see |
@@ -31,10 +33,11 @@ This installs it at `~/.config/omarchy/plugins/a-b.eyebreak` and puts the eye ic
 - **Active time only.** 20 s without keyboard or mouse input counts as a rest and restarts both clocks. Apps that keep the screen awake (a playing video, a call) keep you counted as present. Suspend also counts as a rest.
 - **Quiet when it should be.** While notifications are in Do Not Disturb, or while a screen share is running, a due blink nudge is skipped and a due look-far break waits. The break shows once DND or the share ends; DND is re-checked once a minute.
 - **On every screen, out of the way.** Each card lands at a random spot near the middle of each screen, above fullscreen apps. Cards never take keyboard focus and are click-through unless you turn on click to dismiss.
+- **Matches your theme.** Cards, the menu and the bar icon use the current Omarchy theme colours, light or dark, and change with it when you switch themes.
 
 ## Bar menu
 
-Hover the eye for the time to the next look-far break and blink nudge; the menu shows the same line at the top. Click it for:
+Hover the eye for the time to the next reminders, e.g. "Look far in 19 min · blink in 9 min" (a reminder that is off is left out). The menu shows the same line at the top. Click the eye for:
 
 - Pause 15 min, 1 h or until tomorrow (06:00), and Resume. While paused the eye is shut.
 - Take a look-far break now.
@@ -64,7 +67,7 @@ Booleans need `--json`, e.g. `omarchy bar set a-b.eyebreak dismissOnClick true -
 ## Run from a terminal
 
 ```bash
-omarchy-shell a-b.eyebreak status          # JSON: next reminders, pause, idle, sharing
+omarchy-shell a-b.eyebreak status          # JSON: seconds to each reminder, pause, idle, sharing, last outcome
 omarchy-shell a-b.eyebreak pause 30        # minutes, or "tomorrow"
 omarchy-shell a-b.eyebreak resume
 omarchy-shell a-b.eyebreak breakNow
@@ -85,6 +88,7 @@ The 10-minute blink interval is this plugin's choice, not a published guideline.
 ## Known limits
 
 - A pause is forgotten when the shell restarts.
+- The time in the menu and tooltip updates every 5 s while you are active, and not while you are idle.
 - "Until tomorrow" always ends at 06:00.
 - Do Not Disturb is read with `omarchy-shell notifications dndState`, so "snooze all notifications" is not detected. If that command does not answer within 3 s, the reminder shows anyway.
 - Screen sharing is detected the way Omarchy's notifications detect it: a portal video stream named `xdph-streaming-*`.
